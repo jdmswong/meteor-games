@@ -4,6 +4,10 @@ Navbar = React.createClass({
 		return (
 
 			<nav className="navbar navbar-default">
+				<div className="navbar-header">
+
+				</div>
+
 				<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul className="nav navbar-nav">
 						<li><a href="#">First</a></li>
