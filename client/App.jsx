@@ -6,8 +6,6 @@ App = React.createClass({
 
 			<div className="container">
 
-				<IncludeTemplate template={Template._loginButtons} />
-
 				<Navbar />
 				<Content />
 

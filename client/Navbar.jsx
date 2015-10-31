@@ -14,6 +14,9 @@ Navbar = React.createClass({
 						<li><a href="#">Second</a></li>
 
 					</ul>
+					<ul className="nav navbar-nav navbar-right">
+						<li><a><IncludeTemplate template={Template._loginButtons} /></a></li>
+					</ul>
 				</div>
 			</nav>
 
