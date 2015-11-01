@@ -1,18 +1,25 @@
 Content = React.createClass({
 
+	renderContent(){
+		if(Meteor.user()){
+			return (
+				<div className="jumbotron">
+					<h3>Welcome {Meteor.user().emails[0].address}</h3>
+				</div>
+			);
+		}else{
+			return (
+				<div className="jumbotron">
+					<h3>Play some games!</h3>
+					<p>Please log-in</p>
+				</div>
+			);
+
+		}
+	},
+
 	render(){
-		return (
-
-			<div className="jumbotron">
-				<h1>Placeholder</h1>
-				<p>Content goes here</p>
-				<p>
-					<a className="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>
-				</p>
-			</div>
-
-
-		);
+		return this.renderContent();
 	}
 
 });
