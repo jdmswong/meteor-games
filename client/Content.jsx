@@ -1,7 +1,21 @@
 Content = React.createClass({
 
+	mixins: [ReactMeteorData],
+
+	getMeteorData() {
+		return {
+			currentUser: Meteor.user()
+		};
+	},
+
+	renderLines(){
+		for( var i of [0,1] ){
+
+		}
+	},
+
 	renderContent(){
-		if(Meteor.user()){
+		if(this.data.currentUser){
 			return (
 				<div className="jumbotron">
 					<h3>Welcome {Meteor.user().emails[0].address}</h3>
@@ -23,3 +37,4 @@ Content = React.createClass({
 	}
 
 });
+
