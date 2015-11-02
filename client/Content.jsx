@@ -29,3 +29,9 @@ Content = React.createClass({
 
 });
 
+First = React.createClass({
+	render(){
+		return ( <span>First view</span> );
+	}
+});
+

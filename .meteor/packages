@@ -22,3 +22,8 @@ react
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 accounts-password
+meteorhacks:npm
+cosmos:browserify
+
+
+npm-container
