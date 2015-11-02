@@ -8,17 +8,11 @@ Content = React.createClass({
 		};
 	},
 
-	renderLines(){
-		for( var i of [0,1] ){
-
-		}
-	},
-
-	renderContent(){
+	render(){
 		if(this.data.currentUser){
 			return (
 				<div className="jumbotron">
-					<h3>Welcome {Meteor.user().emails[0].address}</h3>
+					<h3>Welcome {Meteor.user().username}</h3>
 				</div>
 			);
 		}else{
@@ -30,10 +24,7 @@ Content = React.createClass({
 			);
 
 		}
-	},
 
-	render(){
-		return this.renderContent();
 	}
 
 });
