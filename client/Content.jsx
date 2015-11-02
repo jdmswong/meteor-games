@@ -13,7 +13,7 @@ Content = React.createClass({
 			return (
 				<div className="jumbotron">
 					<h3>Welcome {Meteor.user().username}</h3>
-<Grid rows={3} cols={3}/>
+<Grid rows={3} cols={3} player={1}/>
 				</div>
 			);
 		}else{
