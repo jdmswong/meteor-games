@@ -26,5 +26,7 @@ meteorhacks:npm
 cosmos:browserify
 
 
-npm-container
 reactrouter:react-router
+
+
+npm-container
