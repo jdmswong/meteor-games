@@ -4,14 +4,14 @@ PlayerList = React.createClass({
 
 	getMeteorData() {
 		return {
-			onlinePlayers: Meteor.users.find({username: {$exists: true}})
+			onlinePlayers: Meteor.users.find({username: {$exists: true}}).fetch()
 		};
 	},
 
 
 	render(){
 
-		const renderedOnlinePlayers = this.data.onlinePlayers.fetch().map( (player) => {
+		const renderedOnlinePlayers = this.data.onlinePlayers.map( (player) => {
 			return <li className="list-group-item">{player._id}:{player.username}</li>
 		});
 

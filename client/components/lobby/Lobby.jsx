@@ -9,14 +9,25 @@ Lobby = React.createClass({
 	},
 
 	render(){
-		return (
-			<div className="jumbotron">
-				<h3>Welcome {Meteor.user().username}</h3>
+		if( this.data.currentUser ) {
 
-				<h6>Player list:</h6>
-				<PlayerList />
-			</div>
-		);
+			return (
+				<div className="jumbotron">
+					<h3>Welcome {Meteor.user().username}</h3>
+
+					<h6>Player list:</h6>
+					<PlayerList />
+				</div>
+			);
+
+		}else{
+			return (
+				<div className="jumbotron">
+					<h3>Please Log-In to view lobby</h3>
+
+				</div>
+			);
+		}
 
 	}
 
