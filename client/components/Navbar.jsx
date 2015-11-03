@@ -1,3 +1,5 @@
+const Link = ReactRouter.Link;
+
 Navbar = React.createClass({
 
 	render(){
@@ -10,8 +12,8 @@ Navbar = React.createClass({
 
 				<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul className="nav navbar-nav">
-						<li><a href="#">First</a></li>
-						<li><a href="#">Second</a></li>
+						<li><Link to={'/welcome'} >Welcome</Link></li>
+						<li><Link to={'/lobby'} >Lobby</Link></li>
 
 					</ul>
 					<ul className="nav navbar-nav navbar-right">

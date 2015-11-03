@@ -4,8 +4,9 @@ const {
 } = ReactRouter;
 
 const routes = (
-	<Route name="root" handler={App} path="/">
-
+	<Route name="root" path="/" component={App}>
+		<Route path="welcome" component={Welcome} />
+		<Route path="lobby" component={Lobby} />
 	</Route>
 );
 
