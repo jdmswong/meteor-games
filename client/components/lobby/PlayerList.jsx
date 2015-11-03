@@ -1,17 +1,32 @@
 PlayerList = React.createClass({
 
+	mixins: [ReactMeteorData],
+
+	getMeteorData() {
+		return {
+			onlinePlayers: Meteor.users.find({username: {$exists: true}})
+		};
+	},
+
+
 	render(){
+
+		const renderedOnlinePlayers = this.data.onlinePlayers.fetch().map( (player) => {
+			return <li className="list-group-item">{player._id}:{player.username}</li>
+		});
+
 		return (
 
 			<ul className="list-group">
-				<li className="list-group-item">Cras justo odio</li>
-				<li className="list-group-item">Dapibus ac facilisis in</li>
-				<li className="list-group-item">Morbi leo risus</li>
-				<li className="list-group-item">Porta ac consectetur ac</li>
-				<li className="list-group-item">Vestibulum at eros</li>
+				{ renderedOnlinePlayers }
 			</ul>
 
 		);
 	}
+
+});
+
+PlayerListEntry = React.createClass({
+
 
 });
