@@ -1,13 +1,5 @@
 Welcome = React.createClass({
 
-	mixins: [ReactMeteorData],
-
-	getMeteorData() {
-		return {
-			currentUser: Meteor.user()
-		};
-	},
-
 	render(){
 
 		return (

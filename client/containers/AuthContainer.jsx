@@ -8,6 +8,8 @@ AuthContainer = React.createClass({
 		};
 	},
 
+
+
 	render(){
 
 		if( this.data.currentUser ) {

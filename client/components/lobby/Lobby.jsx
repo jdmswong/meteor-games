@@ -1,9 +1,25 @@
 Lobby = React.createClass({
 
+	mixins: [ReactMeteorData],
+
+	getMeteorData() {
+		return {
+			currentUser: Meteor.user()
+		};
+	},
+
 	render(){
 		return (
 
-			<h1>You are authorized!</h1>
+			<div className="jumbotron">
+				<h3>Welcome {this.data.currentUser.username}</h3>
+
+				<h6>Player list:</h6>
+				<PlayerList currentUser={this.data.currentUser} />
+
+			</div>
+
+
 
 		);
 
