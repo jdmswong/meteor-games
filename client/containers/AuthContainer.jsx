@@ -15,7 +15,7 @@ AuthContainer = React.createClass({
 		if( this.data.currentUser ) {
 			return this.props.children;
 		}else{
-			return (<h1>Please sign in to view this page</h1>);
+			return (<Login />);
 		}
 
 	}

@@ -4,7 +4,10 @@ NewLobby = React.createClass({
 		return (
 
 			<div className="jumbotron">
-				New Lobby
+
+				New Lobby form:
+				<NewLobbyForm />
+
 			</div>
 
 
@@ -12,3 +15,4 @@ NewLobby = React.createClass({
 	}
 
 });
+
