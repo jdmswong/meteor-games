@@ -14,8 +14,8 @@ Login = React.createClass({
 
 				<form role="form">
 					<div className="form-group">
-						<label for="email">Email address:</label>
-						<input type="email" className="form-control" id="email" />
+						<label for="email">Username:</label>
+						<input type="text" className="form-control" id="username" />
 					</div>
 
 					<div className="form-group">
