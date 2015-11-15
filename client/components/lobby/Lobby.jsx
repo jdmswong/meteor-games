@@ -4,20 +4,30 @@ Lobby = React.createClass({
 
 	getMeteorData() {
 
+		let lobby = Lobbies.findOne(this.props.params.lobbyId);
+
 		return {
-			lobby: Lobbies.findOne(this.props.params.lobbyId)
+			lobby: lobby
+
 		};
 	},
 
 	render(){
 
-		return (
-
-			<div className="jumbotron">
-				Lobby view for {this.data.lobby.name}
-			</div>
-
+		if(this.data.lobby) {
+			return (
+				<div className="jumbotron">
+					<h2>{this.data.lobby.name}</h2>
+					<PlayerSlots lobby={this.data.lobby}/>
+				</div>
 			);
+		}else{
+			return (
+				<div className="jumbotron">
+					<h2>Lobby cannot be found</h2>
+				</div>
+			);
+		}
 	}
 
 });
