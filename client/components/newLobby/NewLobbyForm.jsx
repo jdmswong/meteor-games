@@ -68,7 +68,7 @@ NewLobbyForm = React.createClass({
 						console.log("error", error);
 					}
 					if (result) {
-						console.log("lobby creation successful");
+						console.log("lobbies creation successful");
 					}
 				}
 			);

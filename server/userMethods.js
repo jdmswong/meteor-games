@@ -15,7 +15,7 @@ Meteor.methods({
 		check(playerCapacity, Match.Integer);
 
 		if( playerCapacity < 1 )
-			throw new Meteor.Error("lobby must support at least 1 player");
+			throw new Meteor.Error("lobbies must support at least 1 player");
 
 		if( Lobbies.insert({
 			name: newLobbyName,

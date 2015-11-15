@@ -8,7 +8,7 @@ const routes = (
 
 		<Route path="welcome" component={Welcome} />
 		<Route component={AuthContainer} >
-			<Route path="lobby" component={Lobby}></Route>
+			<Route path="lobbies" component={Lobbies}></Route>
 			<Route path="newLobby" component={NewLobby}></Route>
 			<Route path="game" component={BoxClick}></Route>
 		</Route>

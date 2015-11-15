@@ -13,7 +13,7 @@ Navbar = React.createClass({
 				<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul className="nav navbar-nav">
 						<li><Link to={'/welcome'} >Welcome</Link></li>
-						<li><Link to={'/lobby'} >Lobby</Link></li>
+						<li><Link to={'/lobbies'} >Lobby</Link></li>
 						<li><Link to={'/newLobby'} >Play now!</Link></li>
 
 					</ul>
