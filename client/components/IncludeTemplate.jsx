@@ -1,6 +1,6 @@
 IncludeTemplate = React.createClass({
 	componentDidMount() {
-		var componentRoot = React.findDOMNode(this);
+		var componentRoot = ReactDOM.findDOMNode(this);
 		var parentNode = componentRoot.parentNode;
 		parentNode.removeChild(componentRoot);
 		// Render the Blaze template on this node
