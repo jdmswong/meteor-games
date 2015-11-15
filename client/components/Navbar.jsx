@@ -19,6 +19,7 @@ Navbar = React.createClass({
 							<li><Link to={`/lobby/${this.props.currentLobby}`} >My Current Lobby</Link></li>
 						: ""
 						}
+						<li><Link to={'/games'} >All Games</Link></li>
 
 					</ul>
 					<ul className="nav navbar-nav navbar-right">

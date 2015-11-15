@@ -27,6 +27,7 @@ const routes = (
 					});
 				}}
 			></Route>
+			<Route path="games" component={AllGames}></Route>
 		</Route>
 		<Route path="*" component={Welcome}/>
 	</Route>
