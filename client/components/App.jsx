@@ -20,17 +20,15 @@ App = React.createClass({
 
 
 	render(){
-		return (
 
+		return (
 
 			<div className="container">
 
 				<Navbar />
-				{this.props.children}
+				{ this.data.subsReady ? this.props.children : <h2>Loading...</h2>}
 
 			</div>
-
-
 
 		);
 	}

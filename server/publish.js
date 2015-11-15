@@ -7,6 +7,6 @@ Meteor.publish("games", function(){
 });
 
 Meteor.publish("lobbies", function(){
-	return Lobbies.find({}, {fields: {name: 1}});
+	return Lobbies.find({});
 });
 
