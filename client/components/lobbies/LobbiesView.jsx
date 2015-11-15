@@ -1,4 +1,4 @@
-Lobby = React.createClass({
+LobbiesView = React.createClass({
 
 	mixins: [ReactMeteorData],
 

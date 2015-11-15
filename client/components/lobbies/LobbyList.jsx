@@ -12,7 +12,7 @@ LobbyList = React.createClass({
     render(){
 
         const renderedOnlineLobbies = this.data.onlineLobbies.map( function(lobby){
-            return <a href="#" key={lobby._id} className="list-group-item">{lobby.name}</a>
+            return <a href={"lobby/"+lobby._id} key={lobby._id} className="list-group-item">{lobby.name}</a>
         });
 
         return (
