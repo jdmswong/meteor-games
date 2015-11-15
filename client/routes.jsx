@@ -11,6 +11,7 @@ const routes = (
 			<Route path="lobbies" component={Lobbies}></Route>
 			<Route path="newLobby" component={NewLobby}></Route>
 			<Route path="game" component={BoxClick}></Route>
+			<Route path="lobby/:lobbyId" component={Lobby}></Route>
 		</Route>
 		<Route path="*" component={Welcome}/>
 	</Route>
