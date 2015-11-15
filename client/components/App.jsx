@@ -14,7 +14,9 @@ App = React.createClass({
 		});
 
 		return {
-			subsReady: subsReady
+			subsReady: subsReady,
+			currentLobby: Meteor.user() ?
+				Meteor.user().profile.currentLobby : undefined
 		}
 	},
 
@@ -25,7 +27,7 @@ App = React.createClass({
 
 			<div className="container">
 
-				<Navbar />
+				<Navbar currentLobby={this.data.currentLobby}/>
 				{ this.data.subsReady ? this.props.children : <h2>Loading...</h2>}
 
 			</div>
