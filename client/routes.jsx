@@ -10,6 +10,7 @@ const routes = (
 		<Route component={AuthContainer} >
 			<Route path="lobby" component={Lobby}></Route>
 			<Route path="newLobby" component={NewLobby}></Route>
+			<Route path="game" component={BoxClick}></Route>
 		</Route>
 		<Route path="*" component={Welcome}/>
 	</Route>
