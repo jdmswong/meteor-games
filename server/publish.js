@@ -1,5 +1,5 @@
 Meteor.publish("players", function(){
-	return Meteor.users.find({},{username:1});
+	return Meteor.users.find({},{fields: {username:1}});
 });
 
 Meteor.publish("games", function(){
