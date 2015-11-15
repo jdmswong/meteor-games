@@ -1,6 +1,6 @@
 NewLobbyForm = React.createClass({
 
-	mixins: [ReactMeteorData],
+	mixins: [ReactMeteorData, React.addons.LinkedStateMixin],
 
 	getInitialState() {
 		return {
@@ -40,7 +40,8 @@ NewLobbyForm = React.createClass({
 		return (
 			<div className="form-group">
 				<label for="openSlots">How many players?: </label>
-				<select className="form-control" id="openSlots" onChange={this.handlePlayerNumSelection}>
+				<select className="form-control" id="openSlots"
+								valueLink={this.linkState('playerCapacity')}>
 					{allOptions}
 				</select>
 			</div>
@@ -51,18 +52,28 @@ NewLobbyForm = React.createClass({
 	handleGameSelection(event) {
 		this.setState({
 			selectedGame: event.target.value.length > 0 ?
-				Games.findOne(event.target.value) : undefined
-		});
-	},
-
-	handlePlayerNumSelection(event) {
-		this.setState({
-			selectedPlayerNum: event.target.value
+				Games.findOne(event.target.value) : undefined,
+			playerCapacity: event.target.value.length > 0 ?
+				Games.findOne(event.target.value).minPlayers : undefined
 		});
 	},
 
 	submitForm() {
-		console.log("submit game ",this.state.selectedGame.name,", ",this.state.selectedPlayerNum," players");
+		if(this.state.newLobbyName && this.state.selectedGame && this.state.playerCapacity){
+			console.log("submit game ",this.state.newLobbyName,":",this.state.selectedGame.name,", ",this.state.playerCapacity," players");
+			Meteor.call("newLobby",
+				this.state.newLobbyName, this.state.selectedGame._id, parseInt(this.state.playerCapacity),
+				function (error, result) {
+					if (error) {
+						console.log("error", error);
+					}
+					if (result) {
+						console.log("lobby creation successful");
+					}
+				}
+			);
+
+		}
 	},
 
 	render() {
@@ -73,7 +84,8 @@ NewLobbyForm = React.createClass({
 
 				<div className="form-group">
 					<label for="lobbyName">Lobby name:</label>
-					<input type="text" className="form-control" id="lobbyName" />
+					<input type="text" className="form-control" id="lobbyName"
+								 valueLink={this.linkState('newLobbyName')}/>
 				</div>
 
 				<div className="form-group">
