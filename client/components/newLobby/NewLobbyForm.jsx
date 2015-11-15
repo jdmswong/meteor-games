@@ -20,7 +20,7 @@ NewLobbyForm = React.createClass({
 		});
 
 		return (
-			<select className="form-control" id="selectGame" onChange={this.handleNewSelection}>
+			<select className="form-control" id="selectGame" onChange={this.handleGameSelection}>
 				<option value="">Select ...</option>
 				{allGames}
 			</select>
@@ -40,7 +40,7 @@ NewLobbyForm = React.createClass({
 		return (
 			<div className="form-group">
 				<label for="openSlots">How many players?: </label>
-				<select className="form-control" id="openSlots">
+				<select className="form-control" id="openSlots" onChange={this.handlePlayerNumSelection}>
 					{allOptions}
 				</select>
 			</div>
@@ -48,19 +48,28 @@ NewLobbyForm = React.createClass({
 	},
 
 	// Triggers when user selects a game
-	handleNewSelection(event) {
-
+	handleGameSelection(event) {
 		this.setState({
 			selectedGame: event.target.value.length > 0 ?
 				Games.findOne(event.target.value) : undefined
 		});
 	},
 
+	handlePlayerNumSelection(event) {
+		this.setState({
+			selectedPlayerNum: event.target.value
+		});
+	},
+
+	submitForm() {
+		console.log("submit game ",this.state.selectedGame.name,", ",this.state.selectedPlayerNum," players");
+	},
+
 	render() {
 
 		return (
 
-			<form role="form">
+			<form role="form" onSubmit={this.submitForm}>
 
 				<div className="form-group">
 					<label for="lobbyName">Lobby name:</label>
