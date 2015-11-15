@@ -1,6 +1,15 @@
 NewLobbyForm = React.createClass({
 
-	render(){
+	mixins: [ReactMeteorData],
+
+	getMeteorData() {
+		return {
+			games: Games.find().fetch()
+		};
+	},
+
+	render() {
+
 		return (
 
 			<form role="form">

@@ -1,5 +1,23 @@
 App = React.createClass({
 
+	mixins: [ReactMeteorData],
+
+	getMeteorData() {
+		const subHandles = [
+			Meteor.subscribe("games"),
+			Meteor.subscribe("players")
+		];
+
+		const subsReady = _.every(subHandles, function (handle) {
+			return handle.ready();
+		});
+
+		return {
+			subsReady: subsReady
+		}
+	},
+
+
 	render(){
 		return (
 
