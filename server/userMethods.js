@@ -17,15 +17,23 @@ Meteor.methods({
 		if( playerCapacity < 1 )
 			throw new Meteor.Error("lobbies must support at least 1 player");
 
+		function constructSlots(size){
+			const emptySlot = { id: undefined };
+			let result = [{
+				id: Meteor.userId(),
+				name: Meteor.user().username,
+				readyStatus: false
+			}];
+			for( let i=1; i<size; i++){
+				result.push(Object.assign({}, emptySlot));
+			}
+			return result;
+		};
+
 		if( Lobbies.insert({
 			name: newLobbyName,
 			playerCapacity: playerCapacity,
-			players: {
-				1: {
-					id: Meteor.userId(),
-					readyStatus: false
-				}
-			},
+			slots: constructSlots(playerCapacity),
 			playerCount: 1
 		}) )
 			return true;

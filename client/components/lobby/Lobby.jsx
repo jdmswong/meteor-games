@@ -18,6 +18,7 @@ Lobby = React.createClass({
 			return (
 				<div className="jumbotron">
 					<h2>{this.data.lobby.name}</h2>
+					Slots:
 					<PlayerSlots lobby={this.data.lobby}/>
 				</div>
 			);
