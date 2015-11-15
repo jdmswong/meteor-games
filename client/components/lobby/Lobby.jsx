@@ -1,3 +1,7 @@
+const {
+	Router
+} = ReactRouter;
+
 Lobby = React.createClass({
 
 	mixins: [ReactMeteorData],
@@ -12,6 +16,11 @@ Lobby = React.createClass({
 		};
 	},
 
+	leaveClicked(e){
+
+		window.location.replace("#/lobbies");
+	},
+
 	render(){
 
 		if(this.data.lobby) {
@@ -20,6 +29,8 @@ Lobby = React.createClass({
 					<h2>{this.data.lobby.name}</h2>
 					Slots:
 					<PlayerSlots lobby={this.data.lobby}/>
+					<button type="button" className="btn btn-default">Start game</button>
+					<button type="button" className="btn btn-default" onClick={this.leaveClicked}>Leave room</button>
 				</div>
 			);
 		}else{
