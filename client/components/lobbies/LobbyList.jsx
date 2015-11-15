@@ -1,3 +1,5 @@
+const Link = ReactRouter.Link;
+
 LobbyList = React.createClass({
 
     mixins: [ReactMeteorData],
@@ -12,7 +14,8 @@ LobbyList = React.createClass({
     render(){
 
         const renderedOnlineLobbies = this.data.onlineLobbies.map( function(lobby){
-            return <a href={"lobby/"+lobby._id} key={lobby._id} className="list-group-item">{lobby.name}</a>
+            return <Link to={"lobby/"+lobby._id} key={lobby._id}
+                         className="list-group-item">{lobby.name}</Link>
         });
 
         return (

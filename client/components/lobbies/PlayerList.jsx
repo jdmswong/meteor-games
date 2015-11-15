@@ -12,7 +12,7 @@ PlayerList = React.createClass({
 	render(){
 
 		const renderedOnlinePlayers = this.data.onlinePlayers.map( (player) => {
-			return <a href="#" className="list-group-item">{player._id}:{player.username}</a>
+			return <a href="#" key={player._id} className="list-group-item">{player._id}:{player.username}</a>
 		});
 
 		return (
