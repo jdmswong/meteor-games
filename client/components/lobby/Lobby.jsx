@@ -18,7 +18,7 @@ Lobby = React.createClass({
 				<PlayerList currentUser={this.data.currentUser} />
 
 				<h6>Lobby list:</h6>
-				<LobbyList currentUser={this.data.currentUser} />
+				<LobbyList />
 
 			</div>
 

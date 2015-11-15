@@ -4,7 +4,6 @@ LobbyList = React.createClass({
 
     getMeteorData() {
         return {
-            currentUser: Meteor.user(),
             onlineLobbies: Lobbies.find({name: {$exists: true}}).fetch()
         };
     },
