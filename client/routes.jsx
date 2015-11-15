@@ -11,7 +11,22 @@ const routes = (
 			<Route path="lobbies" component={LobbiesView}></Route>
 			<Route path="newLobby" component={NewLobby}></Route>
 			<Route path="game" component={BoxClick}></Route>
-			<Route path="lobby/:lobbyId" component={Lobby}></Route>
+			<Route
+				path="lobby/:lobbyId"
+				component={Lobby}
+				onEnter={function(nextState, replaceState){
+					Meteor.call("joinLobby", nextState.params.lobbyId, function(error, result){
+						if(error){
+							console.log("error", error);
+						}
+						if(typeof(result) != "undefined"){
+							if(result == false){
+								// the user has entered a full room, may want to redirect here
+							}
+						}
+					});
+				}}
+			></Route>
 		</Route>
 		<Route path="*" component={Welcome}/>
 	</Route>
