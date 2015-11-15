@@ -5,7 +5,8 @@ App = React.createClass({
 	getMeteorData() {
 		const subHandles = [
 			Meteor.subscribe("games"),
-			Meteor.subscribe("players")
+			Meteor.subscribe("players"),
+			Meteor.subscribe("lobbies")
 		];
 
 		const subsReady = _.every(subHandles, function (handle) {

@@ -6,3 +6,7 @@ Meteor.publish("games", function(){
 	return Games.find({},{fields: {filename: 0}});
 });
 
+Meteor.publish("lobbies", function(){
+	return Lobbies.find({}, {fields: {name: 1}});
+});
+
