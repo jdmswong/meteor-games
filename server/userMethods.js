@@ -69,15 +69,30 @@ Meteor.methods({
 			};
 		}
 
-		//return
-			Meteor.users.update(Meteor.userId(),{$set: {"profile.currentLobby": lobbyId}});
-			//&&
+			Meteor.users.update(Meteor.userId(),{
+				$set: {"profile.currentLobby": {id:lobbyId, slot:freeSlot}}
+			});
 			Lobbies.update(lobbyId,
 				{$set: {
 					["slots."+freeSlot]: filledSlot(Meteor.userId(), Meteor.user().username)
 				}}
 			);
 
+	},
+
+	leaveLobby(){
+
+		Meteor.call('requireUser');
+
+		const currentLobbyId = Meteor.user().profile.currentLobby && Meteor.user().profile.currentLobby.id;
+		//const currentL
+
+		Meteor.users.update(Meteor.userId(),{$set: {"profile.currentLobby": null}});
+		Lobbies.update(currentLobbyId,
+			{$set: {
+				["slots."+freeSlot]: filledSlot(Meteor.userId(), Meteor.user().username)
+			}}
+		);
 
 	}
 });
